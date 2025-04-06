@@ -1,0 +1,264 @@
+/* Основные переменные */
+:root {
+  --primary: #1a1a1a;
+  --accent: #e67e22;
+  --text: #333;
+  --section-bg: #f5f5f5;
+  --transition: all 0.3s ease;
+}
+
+/* Базовые стили */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  color: var(--text);
+  scroll-behavior: smooth;
+}
+
+/* Навигация */
+.navbar {
+  background: rgba(26, 26, 26, 0.95);
+  padding: 1.2rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+/* Секции */
+.section {
+  padding: 6rem 10% 4rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Главная секция */
+#home {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+              url('../img/hero-bg.jpg') center/cover;
+  color: white;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Продукция */
+#products {
+  background: var(--section-bg);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.product-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: var(--transition);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-title {
+  color: var(--accent);
+  margin: 0 0 1rem;
+}
+
+/* Форма обратной связи */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background: rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.9);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 5rem 5% 3rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+/* О нас */
+#about {
+  background: #fff;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.about-content p {
+  margin-bottom: 1.5rem;
+}
+
+/* Контакты */
+#contacts {
+  background: var(--primary);
+  color: white;
+}
+
+.contact-info {
+  display: grid;
+  gap: 2rem;
+}
+
+.contact-item {
+  background: rgba(255,255,255,0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.submit-btn {
+  background: var(--accent);
+  color: white;
+  padding: 1rem 2.5rem;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.submit-btn:hover {
+  background: #d35400;
+}
+/* Стили для изображений */
+.product-image-wrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  aspect-ratio: 4/3;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.4) 100%);
+}
+
+/* Иконка ГОСТ */
+.gost-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin: 12px 0;
+}
+
+.gost-icon {
+  font-size: 1.2rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .product-image-wrapper {
+    aspect-ratio: 1/1;
+  }
+  
+  .gost-badge {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+}
+/* Стили для иконки PDF */
+.pdf-icon {
+  width: 20px;  /* Уменьшаем размер */
+  height: 20px;
+  margin-right: 8px;  /* Отступ от текста */
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.download-btn:hover .pdf-icon {
+  transform: translateY(-2px);  /* Анимация при наведении */
+}
+
+/* Для мобильных можно сделать еще меньше */
+@media (max-width: 768px) {
+  .pdf-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+  }
+}

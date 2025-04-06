@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<%- include('../includes/head') %>
+<body>
+  <h1>Панель управления</h1>
+  <table>
+    <% messages.forEach(msg => { %>
+    <tr>
+      <td><%= msg.name %></td>
+      <td><%= msg.email %></td>
+      <td><%= msg.message %></td>
+      <td>
+        <form action="/admin/delete/<%= msg.id %>" method="POST">
+          <button>Удалить</button>
+        </form>
+      </td>
+    </tr>
+    <% }) %>
+  </table>
+</body>
+</html>

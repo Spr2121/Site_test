@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>RICH SIKER</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="#home" class="nav-link">Главная</a>
+      <a href="#products" class="nav-link">Продукция</a>
+      <a href="#about" class="nav-link">О нас</a>
+      <a href="#contacts" class="nav-link">Контакты</a>
+    </div>
+  </nav>
+
+  <!-- Главная -->
+  <section id="home" class="section">
+    <h1 class="section-title">Производство щебня высшего качества</h1>
+    <p class="section-subtitle">ГОСТ 32703-2014 • Телефункская область</p>
+  </section>
+
+<!-- Продукция -->
+<section id="products" class="section">
+  <h2 class="section-title">Наша продукция</h2>
+  <div class="products-grid">
+    <% products.forEach(product => { %>
+      <div class="product-card">
+        <!-- Блок с изображением -->
+        <div class="product-image-wrapper">
+          <img 
+            src="<%= product.image %>" 
+            alt="<%= product.title %>" 
+            class="product-image"
+            loading="lazy"
+          >
+          <div class="image-overlay"></div>
+        </div>
+
+        <!-- Контент карточки -->
+        <div class="product-content">
+          <h3 class="product-title"><%= product.title %></h3>
+          <div class="gost-badge">
+            <span class="gost-icon">📄</span>
+            <%= product.gost %>
+          </div>
+          
+          <% if(product.description) { %>
+            <p class="product-description"><%= product.description %></p>
+          <% } %>
+
+          <a href="<%= product.pdf %>" class="download-btn" target="_blank">
+            <svg class="pdf-icon" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-2 14v4h-4v-4H7l5-5 5 5h-3zm0-10v4h4l-4-4z"/>
+            </svg>
+            Скачать паспорт
+          </a>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</section>
+
+  <!-- О нас -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">О компании</h2>
+      <div class="about-content">
+        <p>Шебеночный завод компании PWHCA/IKEP располагается на месторождении порфиритов - участок Ларинский-1 в 10 километрах от села Ларина, Уясной район.</p>
+        <p>Комплекс включает в себя три стадии дробления. Завод укомплектован полным перечнем добычи и ампутационерной техники, что обеспечивает полную автономность производственно-технологического цикла и производство щебня, соответствующего самым современным стандартам.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section id="contacts" class="section">
+    <div class="container">
+      <h2 class="section-title">Контакты</h2>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <div class="contact-item">
+            <h3>Для заказа щебня:</h3>
+            <p>Тел.: +7 (891) 270-64-61</p>
+            <p>Тел.: 8-970-046-61-95</p>
+            <p>Адрес: ст. Курамино, ЮУЖД под 806603</p>
+          </div>
+          
+          <div class="contact-item">
+            <h3>По вопросам сотрудничества:</h3>
+            <p>Email: info@rich-siker.ru</p>
+            <p>Тел.: +7 (892) 600-15-79</p>
+          </div>
+        </div>
+
+        <form class="contact-form" action="/submit-form" method="POST">
+          <input class="form-input" type="text" name="name" placeholder="Имя*" required>
+          <input class="form-input" type="tel" name="phone" placeholder="Телефон*" required>
+          <input class="form-input" type="email" name="email" placeholder="Эл.почта*" required>
+          <textarea class="form-input" name="message" rows="5" placeholder="Сообщение..."></textarea>
+          <button type="submit" class="submit-btn">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

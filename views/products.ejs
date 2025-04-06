@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<%- include('includes/head') %>
+<body>
+  <nav>
+    <a href="/">Главная</a>
+    <a href="/products">Продукция</a>
+    <a href="/contacts">Контакты</a>
+  </nav>
+
+  <h2>Наша продукция</h2>
+  
+  <div class="products-list">
+    <% products.forEach(product => { %>
+      <div class="product-item">
+        <h3><%= product.title %></h3>
+        <p>ГОСТ: <%= product.gost %></p>
+        <p><%= product.description %></p>
+        <a href="<%= product.pdf %>">Скачать паспорт</a>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>

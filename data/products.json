@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "title": "Щебень кубовидный фр.8-11,2",
+      "gost": "ГОСТ 32703-2014",
+      "pdf": "/docs/pasport-8-11.pdf",
+      "description": "Идеален для верхних слоёв дорожного покрытия",
+      "image": "/img/products/1.jpg"
+    },
+    {
+      "title": "Отсев 0-4",
+      "gost": "ГОСТ 32703-2014",
+      "pdf": "/docs/pasport-0-4.pdf",
+      "description": "Используется для подсыпки и дренажных систем",
+      "image": "/img/products/2.jpg"
+    },
+ {
+      "title": "Отсев 0-4",
+      "gost": "ГОСТ 32703-2014",
+      "pdf": "/docs/pasport-0-4.pdf",
+      "description": "Используется для подсыпки и дренажных систем",
+      "image": "/img/products/2.jpg"
+    }
+  ]
+}

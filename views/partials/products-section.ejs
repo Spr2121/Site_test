@@ -1,0 +1,18 @@
+<section id="products">
+  <h2>Наша продукция</h2>
+  <div class="products-grid">
+    <% products.forEach(product => { %>
+      <div class="product-card">
+        <h3><%= product.title %></h3>
+        <div class="gost-badge"><%= product.gost %></div>
+        <% if(product.description) { %>
+          <p class="description"><%= product.description %></p>
+        <% } %>
+        <a href="<%= product.pdf %>" class="download-btn">
+          <svg class="pdf-icon">...</svg>
+          Скачать паспорт
+        </a>
+      </div>
+    <% }) %>
+  </div>
+</section>
