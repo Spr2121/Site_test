@@ -1,113 +1,114 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RICH SIKER - Производство щебня</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RICH SIKER - Производство щебня</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Навигация -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="nav-links">
-                <a href="#home" class="nav-link">Главная</a>
-                <a href="#products" class="nav-link">Продукция</a>
-                <a href="#delivery" class="nav-link">Доставка</a>
-                <a href="#about" class="nav-link">О нас</a>
-                <a href="#contacts" class="nav-link">Контакты</a>
-            </div>
-        </div>
-    </nav>
+  <!-- Навигация -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">Название организации</div>
+      <div class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#home" class="nav-link">Главная</a>
+        <a href="#products" class="nav-link">Продукция</a>
+        <a href="#delivery" class="nav-link">Доставка</a>
+        <a href="#about" class="nav-link">О нас</a>
+        <a href="#contacts" class="nav-link">Контакты</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Главная секция -->
-    <section id="home" class="section home-bg">
-        <div class="container">
-            <h1 class="hero-title">Производство щебня высшего качества</h1>
-            <p class="hero-subtitle">ГОСТ 32703-2014 • Телефункская область</p>
-        </div>
-    </section>
+  <!-- Главная секция с видеофоном -->
+  <section id="home" class="section home-bg">
+    <div class="overlay"></div>
+    <video autoplay muted loop class="bg-video">
+      <source src="/video/video.mp4" type="video/mp4">
+    </video>
+    <div class="container hero-content">
+      <h1 class="hero-title">Производство щебня высшего качества</h1>
+      <p class="hero-subtitle">ГОСТ 32703-2014 • Телефункская область</p>
+      <a href="#contacts" class="cta-btn">Связаться с нами</a>
+    </div>
+  </section>
 
-    <!-- Продукция -->
-    <section id="products" class="section products-bg">
-        <div class="container">
-            <h2 class="section-title">Наша продукция</h2>
-            <div class="products-grid">
-                <% products.forEach(product => { %>
-                <div class="product-card">
-                    <div class="product-image-wrapper">
-                        <img src="<%= product.image %>" alt="<%= product.title %>" class="product-image" loading="lazy">
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title"><%= product.title %></h3>
-                        <div class="gost-badge">
-                            <span class="gost-icon">📄</span>
-                            <%= product.gost %>
-                        </div>
-                        <% if(product.description) { %>
-                            <p class="product-description"><%= product.description %></p>
-                        <% } %>
-                        <a href="<%= product.pdf %>" class="download-btn" target="_blank">
-                            <svg class="pdf-icon" viewBox="0 0 24 24">
-                                <path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-2 14v4h-4v-4H7l5-5 5 5h-3zm0-10v4h4l-4-4z"/>
-                            </svg>
-                            Скачать паспорт
-                        </a>
-                    </div>
-                </div>
-                <% }) %>
+  <!-- Продукция -->
+  <section id="products" class="section section-light">
+    <div class="container">
+      <h2 class="section-title">Наша продукция</h2>
+      <div class="products-grid">
+        <% products.forEach(product => { %>
+          <div class="product-card" data-aos="fade-up">
+            <div class="product-image-wrapper">
+              <img src="<%= product.image %>" alt="<%= product.title %>" class="product-image" loading="lazy">
             </div>
-        </div>
-    </section>
+            <div class="product-content">
+              <h3 class="product-title"><%= product.title %></h3>
+              <div class="gost-badge"><span>📄</span> <%= product.gost %></div>
+              <% if(product.description) { %>
+                <p class="product-description"><%= product.description %></p>
+              <% } %>
+              <a href="<%= product.pdf %>" class="download-btn" target="_blank">
+                <svg class="pdf-icon" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-2 14v4h-4v-4H7l5-5 5 5h-3zm0-10v4h4l-4-4z"/>
+                </svg>
+                Скачать паспорт
+              </a>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
 
-    <!-- Секция с информацией о доставке -->
-  <section id="delivery" class="section delivery-bg">
+  <!-- Доставка -->
+  <section id="delivery" class="section section-dark">
     <div class="container">
       <h2 class="section-title">Доставка</h2>
-      <div class="about-content">
+      <div class="section-text">
         <p>Мы осуществляем доставку щебня по всей Телефункской области.</p>
         <p>Сроки и стоимость зависят от объема и удаленности объекта.</p>
       </div>
     </div>
   </section>
 
-  <!-- Секция "О компании" -->
-  <section id="about" class="section about-bg">
+  <!-- О компании -->
+  <section id="about" class="section section-light">
     <div class="container">
       <h2 class="section-title">О компании</h2>
-      <div class="about-content">
-        <p>Шебеночный завод компании PWHCA/IKEP располагается на месторождении порфиритов - участок Ларинский-1 в 10 километрах от села Ларина, Уясной район.</p>
-        <p>Комплекс включает в себя три стадии дробления. Завод укомплектован полным перечнем добычи и ампутационерной техники, что обеспечивает полную автономность производственно-технологического цикла и производство щебня, соответствующего самым современным стандартам.</p>
+      <div class="section-text">
+        <p>Шебеночный завод компании RICH SIKER располагается на месторождении порфиритов в 10 км от села Ларина, Уясной район.</p>
+        <p>Завод оснащен современным оборудованием, что позволяет производить щебень по самым высоким стандартам.</p>
       </div>
     </div>
   </section>
 
-  <!-- Секция с контактной информацией -->
-  <section id="contacts" class="section contacts-bg">
+  <!-- Контакты -->
+  <section id="contacts" class="section section-dark">
     <div class="container">
       <h2 class="section-title">Контакты</h2>
       <div class="contact-wrapper">
         <div class="contact-info">
           <div class="contact-item">
-            <h3>Для заказа щебня:</h3>
+            <h3>Заказ щебня:</h3>
             <p>Тел.: +7 (891) 270-64-61</p>
             <p>Тел.: 8-970-046-61-95</p>
             <p>Адрес: ст. Курамино, ЮУЖД под 806603</p>
           </div>
-          
           <div class="contact-item">
-            <h3>По вопросам сотрудничества:</h3>
+            <h3>Сотрудничество:</h3>
             <p>Email: info@rich-siker.ru</p>
             <p>Тел.: +7 (892) 600-15-79</p>
           </div>
         </div>
-
         <!-- Форма обратной связи -->
         <form class="contact-form" action="/submit-form" method="POST">
           <input class="form-input" type="text" name="name" placeholder="Имя*" required>
@@ -120,6 +121,10 @@
     </div>
   </section>
 
-    <script src="/js/script.js"></script>
+  <script src="/js/script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
