@@ -1,69 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>RICH SIKER</title>
-  <link rel="stylesheet" href="/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RICH SIKER - Производство щебня</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-links">
-      <a href="#home" class="nav-link">Главная</a>
-      <a href="#products" class="nav-link">Продукция</a>
-      <a href="#about" class="nav-link">О нас</a>
-      <a href="#contacts" class="nav-link">Контакты</a>
-    </div>
-  </nav>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Главная</a>
+                <a href="#products" class="nav-link">Продукция</a>
+                <a href="#delivery" class="nav-link">Доставка</a>
+                <a href="#about" class="nav-link">О нас</a>
+                <a href="#contacts" class="nav-link">Контакты</a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Главная -->
-  <section id="home" class="section">
-    <h1 class="section-title">Производство щебня высшего качества</h1>
-    <p class="section-subtitle">ГОСТ 32703-2014 • Телефункская область</p>
+    <!-- Главная секция -->
+    <section id="home" class="section home-bg">
+        <div class="container">
+            <h1 class="hero-title">Производство щебня высшего качества</h1>
+            <p class="hero-subtitle">ГОСТ 32703-2014 • Телефункская область</p>
+        </div>
+    </section>
+
+    <!-- Продукция -->
+    <section id="products" class="section products-bg">
+        <div class="container">
+            <h2 class="section-title">Наша продукция</h2>
+            <div class="products-grid">
+                <% products.forEach(product => { %>
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="<%= product.image %>" alt="<%= product.title %>" class="product-image" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title"><%= product.title %></h3>
+                        <div class="gost-badge">
+                            <span class="gost-icon">📄</span>
+                            <%= product.gost %>
+                        </div>
+                        <% if(product.description) { %>
+                            <p class="product-description"><%= product.description %></p>
+                        <% } %>
+                        <a href="<%= product.pdf %>" class="download-btn" target="_blank">
+                            <svg class="pdf-icon" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-2 14v4h-4v-4H7l5-5 5 5h-3zm0-10v4h4l-4-4z"/>
+                            </svg>
+                            Скачать паспорт
+                        </a>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция с информацией о доставке -->
+  <section id="delivery" class="section delivery-bg">
+    <div class="container">
+      <h2 class="section-title">Доставка</h2>
+      <div class="about-content">
+        <p>Мы осуществляем доставку щебня по всей Телефункской области.</p>
+        <p>Сроки и стоимость зависят от объема и удаленности объекта.</p>
+      </div>
+    </div>
   </section>
 
-<!-- Продукция -->
-<section id="products" class="section">
-  <h2 class="section-title">Наша продукция</h2>
-  <div class="products-grid">
-    <% products.forEach(product => { %>
-      <div class="product-card">
-        <!-- Блок с изображением -->
-        <div class="product-image-wrapper">
-          <img 
-            src="<%= product.image %>" 
-            alt="<%= product.title %>" 
-            class="product-image"
-            loading="lazy"
-          >
-          <div class="image-overlay"></div>
-        </div>
-
-        <!-- Контент карточки -->
-        <div class="product-content">
-          <h3 class="product-title"><%= product.title %></h3>
-          <div class="gost-badge">
-            <span class="gost-icon">📄</span>
-            <%= product.gost %>
-          </div>
-          
-          <% if(product.description) { %>
-            <p class="product-description"><%= product.description %></p>
-          <% } %>
-
-          <a href="<%= product.pdf %>" class="download-btn" target="_blank">
-            <svg class="pdf-icon" viewBox="0 0 24 24">
-              <path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-2 14v4h-4v-4H7l5-5 5 5h-3zm0-10v4h4l-4-4z"/>
-            </svg>
-            Скачать паспорт
-          </a>
-        </div>
-      </div>
-    <% }) %>
-  </div>
-</section>
-
-  <!-- О нас -->
-  <section id="about" class="section">
+  <!-- Секция "О компании" -->
+  <section id="about" class="section about-bg">
     <div class="container">
       <h2 class="section-title">О компании</h2>
       <div class="about-content">
@@ -73,8 +88,8 @@
     </div>
   </section>
 
-  <!-- Контакты -->
-  <section id="contacts" class="section">
+  <!-- Секция с контактной информацией -->
+  <section id="contacts" class="section contacts-bg">
     <div class="container">
       <h2 class="section-title">Контакты</h2>
       <div class="contact-wrapper">
@@ -93,6 +108,7 @@
           </div>
         </div>
 
+        <!-- Форма обратной связи -->
         <form class="contact-form" action="/submit-form" method="POST">
           <input class="form-input" type="text" name="name" placeholder="Имя*" required>
           <input class="form-input" type="tel" name="phone" placeholder="Телефон*" required>
@@ -103,5 +119,7 @@
       </div>
     </div>
   </section>
+
+    <script src="/js/script.js"></script>
 </body>
 </html>
