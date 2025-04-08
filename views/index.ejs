@@ -6,6 +6,12 @@
   <title>RICH SIKER - Производство щебня</title>
   <link rel="stylesheet" href="/css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<<<<<<< HEAD
+=======
+  <!-- Slick Carousel CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+>>>>>>> 91aef78 (Добавил слайдер. Поменял видео)
 </head>
 <body>
   <!-- Навигация -->
@@ -40,6 +46,7 @@
     </div>
   </section>
 
+<<<<<<< HEAD
   <!-- Продукция -->
   <section id="products" class="section section-light">
     <div class="container">
@@ -66,6 +73,21 @@
           </div>
         <% }) %>
       </div>
+=======
+  <!-- Раздел с горизонтальным слайдером товаров -->
+  <section class="product-slider-section">
+    <h2>Наша продукция</h2>
+    <div class="product-slider">
+      <% products.forEach(product => { %>
+        <div class="product-item">
+          <img src="<%= product.image %>" alt="<%= product.title %>">
+          <h3><%= product.title %></h3>
+          <p>ГОСТ: <%= product.gost %></p>
+          <p><%= product.description %></p>
+          <a href="<%= product.pdf %>" target="_blank">Скачать паспорт</a>
+        </div>
+      <% }) %>
+>>>>>>> 91aef78 (Добавил слайдер. Поменял видео)
     </div>
   </section>
 
@@ -121,10 +143,50 @@
     </div>
   </section>
 
+<<<<<<< HEAD
+=======
+  <!-- Подключение скриптов -->
+  <!-- jQuery (подключается один раз!) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Slick Carousel JS -->
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <!-- Дополнительные скрипты (например, AOS, если используется) -->
+>>>>>>> 91aef78 (Добавил слайдер. Поменял видео)
   <script src="/js/script.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
+<<<<<<< HEAD
+=======
+  <!-- Инициализация Slick Carousel -->
+  <script>
+    $(document).ready(function(){
+      $('.product-slider').slick({
+        slidesToShow: 3,         // Количество карточек на экране
+        slidesToScroll: 1,       // Прокрутка по одной карточке
+        autoplay: false,         // Отключена автопрокрутка
+        arrows: true,            // Отображение стрелок
+        prevArrow: '<button type="button" class="slick-prev">&#10094;</button>',
+        nextArrow: '<button type="button" class="slick-next">&#10095;</button>',
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 1
+            }
+          }
+        ]
+      });
+      console.log('Slick инициализирован');
+    });
+  </script>
+>>>>>>> 91aef78 (Добавил слайдер. Поменял видео)
 </body>
 </html>

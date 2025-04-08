@@ -184,7 +184,11 @@ body {
   background: darken(var(--accent), 10%);
 }
 
+<<<<<<< HEAD
 /* ===== Продукция ===== */
+=======
+/* ===== Продукция (Старые стили для продукции, если используются) ===== */
+>>>>>>> 91aef78 (Добавил слайдер. Поменял видео)
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -357,3 +361,121 @@ body {
     display: none;
   }
 }
+<<<<<<< HEAD
+=======
+
+/* ===== Стили для горизонтального слайдера товаров ===== */
+.product-slider-section {
+  padding: 40px 15px; /* Добавляем боковые отступы */
+  max-width: 1500px; /* Ограничиваем максимальную ширину */
+  margin: 0 auto; /* Центрируем на странице */
+}
+.product-slider-section h2 {
+  margin-bottom: 20px;
+}
+
+.product-slider .product-item {
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.product-slider .product-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Обёртка слайдера */
+.product-slider {
+  position: relative;
+  width: calc(100% - 120px); /* Оставляем место для стрелок */
+  margin: 0 auto;
+}
+
+/* Стрелки */
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 60px; /* Ширина кликабельной зоны */
+  background: transparent !important;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  transition: background 0.3s;
+}
+
+.slick-prev { 
+  left: -60px; /* Выносим за пределы слайдера */
+}
+
+.slick-next { 
+  right: -60px; /* Выносим за пределы слайдера */
+}
+
+/* Иконки стрелок */
+.slick-prev:before,
+.slick-next:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  border-left: 3px solid #000;
+  border-bottom: 3px solid #000;
+  transform: translate(-50%, -50%);
+}
+
+.slick-prev:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.slick-next:before {
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+/* Ховер-эффекты */
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  border-color: #333;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background: rgba(0,0,0,0.05) !important;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .product-slider {
+    width: calc(100% - 80px); /* Уменьшаем отступы */
+  }
+  
+  .slick-prev,
+  .slick-next {
+    width: 40px;
+  }
+  
+  .slick-prev { left: -40px; }
+  .slick-next { right: -40px; }
+  
+  .slick-prev:before,
+  .slick-next:before {
+    width: 18px;
+    height: 18px;
+    border-width: 2px;
+  }
+/* Добавьте эти стили для всех карточек */
+.product-item {
+  width: 300px !important; /* Фиксированная ширина */
+  height: 400px !important; /* Фиксированная высота */
+  box-sizing: border-box; /* Учитываем padding в размерах */
+  flex-shrink: 0; /* Запрещаем уменьшение */
+}
+>>>>>>> 91aef78 (Добавил слайдер. Поменял видео)

@@ -1,4 +1,8 @@
 node_modules/
 .env
 database.sqlite
+<<<<<<< HEAD
 Old
+=======
+
+>>>>>>> 91aef78 (Добавил слайдер. Поменял видео)
